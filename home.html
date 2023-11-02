@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exrense Managment System</title>
+        <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+rel="stylesheet"
+/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head> 
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" /> -->
+
+<body> 
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="data:image/png;base64,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"
+          height="40"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <a class="link-secondary me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+
+      <!-- Notifications -->
+      <div class="dropdown">
+        <a
+          class="link-secondary me-3 dropdown-toggle hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <li>
+            <a class="dropdown-item" href="#">Some news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Avatar -->
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="25"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li>
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li >
+            <a class="dropdown-item"id="bt"  class="logout-btn" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+    
+<div class="main">
+
+
+<!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
+
+<h1 class="head">Expense Managment System</h1>
+<div class="balance">
+    <!-- <h1>WELL COME <div ><p id="name"></p></div>
+            </div>!</h1> -->
+            <h3>YOUR BALANCE</h3>
+            <p id="total">00</p>
+            
+        </div>
+        
+        <div class="inp">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-whatever="@mdo">ADD EXPENSE</button>
+          
+            <!-- <button class="btn btn-primary" onclick="addExpense()">ADD EXPENSE </button> -->
+            <button class="btn btn-danger" onclick="deleteAll()">DELETE ALL </button>
+
+        </div>
+        <div class="table-responsive b">
+            <table class="table table-striped table-bordered">
+                <thead> 
+
+                    <tr class="table-dark">
+
+                        <th>Title</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                        <!-- <th>Total Amoount</th> -->
+                    </tr>
+                </thead>
+
+
+                <tbody id="td">
+
+                </tbody>
+
+
+
+            </table>
+        </div>
+
+
+
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Expense</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Title</label>
+                            <input type="text" class="form-control" id="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Amount</label>
+                            <!-- <textarea class="form-control" id="message-text"></textarea> -->
+                            <input class="form-control"  type="number" name="" id="amount">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Date</label>
+                            <!-- <textarea class="form-control" id="message-text"></textarea> -->
+                            <input class="form-control"  type="date" name="" id="date">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="addExpense()" >Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- <button >LogOut</button> -->
+    <!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script> -->
+    <script type="module" src="home.js"></script>
+
+</body>
+
+</html>
